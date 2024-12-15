@@ -1,0 +1,72 @@
+body {
+    background-color: #ffebcd; /* Blanched Almond for a birthday cake feel */
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    overflow: hidden; /* Prevent scrollbars from appearing due to balloons */
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1; /* Ensure text is above balloons */
+}
+
+h1 {
+    color: #ff4500; /* Orange Red */
+    font-size: 2.5em;
+    animation: colorChange 5s infinite;
+}
+
+@keyframes colorChange {
+    0% { color: #ff4500; }
+    50% { color: #ff1493; } /* Deep Pink */
+    100% { color: #ff4500; }
+}
+
+p {
+    color: #4169e1; /* Royal Blue */
+    font-size: 1.2em;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.message p {
+    animation: slideUp 1s ease-out;
+}
+
+@keyframes slideUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.balloons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0; /* Behind text */
+}
+
+.balloon {
+    position: absolute;
+    width: 50px;
+    height: 70px;
+    background-color: #ff69b4; /* Hot Pink */
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    animation: balloonDrop 10s infinite ease-in-out;
+}
+
+@keyframes balloonDrop {
+    0%   { transform: translateY(-100vh); }
+    80%  { transform: translateY(calc(100vh - 100px)); }
+    90%  { transform: translateY(calc(100vh - 80px)); animation-timing-function: ease-out; }
+    100% { transform: translateY(calc(100vh - 100px)); }
+}
+
+/* Add different colors for variety */
+.balloon:nth-child(2n) { background-color: #ff1493; } /* Deep Pink */
+.balloon:nth-child(3n) { background-color: #1e90ff; } /* Dodger Blue */
+.balloon:nth-child(4n) { background-color: #ffd700; } /* Gold */
